@@ -44,6 +44,15 @@ body {
   margin: 0 0 40px 0;
 }
 
+.sc a.btn_s01 {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid #008850;
+  color: #008850;
+  font-size: 14px;
+  font-weight: 500;
+}
+
 .Wrap {}
 
 .TopBanner {
@@ -501,3 +510,331 @@ body {
   margin: 0 0 0 10px;
   vertical-align: -0.2em;
 }
+
+.MainContent .inner figure {
+  float: left;
+  width: calc(100% / 3);
+}
+
+.MainContent .inner figure .thumb {
+  overflow: hidden;
+  margin: 0 0 40px 0;
+}
+
+.MainContent .inner figure img {
+  transition: 0.5s;
+}
+
+.MainContent .inner figure:hover img {
+  transform: scale(1.1);
+}
+
+.MainContent .inner .des {
+  position: relative;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+}
+
+/* thumb에 하면 안된다. overflow:hidden 있으니까 */
+.MainContent .inner .des::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 40px;
+  background: #008850;
+}
+
+.MainContent .inner p {
+  font-size: 15px;
+  font-weight: 300;
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+
+.Portfolio {
+  text-align: left;
+  background: url(../assets/section_bg.jpg) repeat-x;
+}
+
+.Portfolio .portfolio_left_slide {
+  overflow: visible;
+}
+
+.Portfolio .wrap_port {
+  display: flex;
+  width: calc((100% - 1200px) / 2 + 1200px);
+  /* margin-left: calc((100% - 1200px) / 2); */
+  margin-left: auto;
+  overflow: hidden;
+}
+
+.Portfolio .wrap_port .left {
+  width: 400px;
+}
+
+.Portfolio .wrap_port .right {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 450px);
+  padding: 0 0 0 50px;
+}
+
+.Portfolio .portfolio_right_slide {
+  margin: auto 0 0 0;
+  /* flex먹혀야 마진 먹힘 */
+}
+
+.Portfolio .wrap_port .right .title {
+  color: var(--lc);
+  margin-top: 50px;
+}
+
+
+.Portfolio .slider_handler {
+  display: inline-block;
+  border: 1px solid #f9f9f9;
+  font-size: 0;
+  margin-top: 70px;
+}
+
+.Portfolio .slider_handler i {
+  font-size: 20px;
+  color: #f9f9f9;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.Portfolio .slider_handler i~i {
+  border-left: 1px solid #f9f9f9;
+}
+
+.Portfolio .wrap_port strong {
+  display: block;
+  background: transparent;
+  line-height: 50px;
+}
+
+.Portfolio .portfolio_left_slide img {
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, .4);
+}
+
+.Solution {
+  background: var(--lc);
+}
+
+.Solution .container {
+  position: relative;
+}
+
+.Solution .center_slider img {
+  margin: 0 auto;
+
+}
+
+.Solution .center_slider figure {
+  width: 1200px !important;
+  opacity: 0.3;
+}
+
+.Solution .center_slider figure.on {
+  opacity: 1;
+  transition: 1s;
+}
+
+.Solution .content_box>div {
+  display: none;
+}
+
+.Solution .content_box>div.on {
+  display: block;
+}
+
+.Solution .case {
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  background: #fff;
+  padding: 50px;
+  margin: 0 0 0 -500px;
+  width: 300px;
+  text-align: left;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+}
+
+.Solution .case::after {
+  content: "";
+  position: absolute;
+  top: 60px;
+  left: -30px;
+  width: 60px;
+  height: 2px;
+  background: #008850;
+}
+
+.Solution .content_box {
+  margin-bottom: 20px;
+}
+
+.Solution .content_box strong {
+  font-size: 25px;
+  font-weight: 500;
+  display: block;
+  min-height: 60px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  /* strong의 내용에 상관없이 높이를 줘서 아래 자세히보기가
+  같은 위치에 있도록 */
+}
+
+.Solution .content_box p {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.45;
+  margin-bottom: 30px;
+  min-height: 170px;
+  /*p의 내용에 상관없이 높이를 줘서 아래 자세히보기가
+  같은 위치에 있도록 */
+}
+
+.Solution .solution_slider_num {
+  font-size: 40px;
+  color: #008850;
+}
+
+.Solution .solution_slider_num span {
+  font-size: 16px;
+  color: #555;
+}
+
+.Solution .slider_handler {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 1280px;
+  z-index: 999;
+  /* max-width때문에 그 속에서 슬라이드 드래그로 안됨 */
+}
+
+.Solution .slider_handler i {
+  padding: 15px 25px;
+  background: rgba(0, 0, 0, 0.25);
+  color: #f9f9f9;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.Solution .slider_handler i:first-child {
+  float: left;
+}
+
+.Solution .slider_handler i:last-child {
+  float: right;
+}
+
+.Solution .center_slider .slick-dots {
+  position: absolute;
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.Solution .center_slider .slick-dots>li {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #ddd;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.Solution .center_slider .slick-dots>li.slick-active {
+  background: #008850;
+}
+
+.Section04 .center_slider .slick-dots>li button {
+  display: none;
+}
+
+
+.Promotion {
+  padding: 100px 0;
+  background: url(../assets/section4_bg.jpg) no-repeat left bottom;
+  text-align: center;
+}
+
+.Promotion .container {
+  position: relative;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.Promotion .movie_case {
+  width: 800px;
+  height: 450px;
+  margin: 0 auto 80px auto;
+}
+
+.Promotion .txt {
+  display: flex;
+  width: 800px;
+}
+
+.Promotion .txt li {
+  flex: 1;
+}
+
+.Promotion .txt strong {
+  display: block;
+  font-size: 22px;
+  color: #00e085;
+  margin-bottom: 15px;
+}
+
+.Promotion .txt span {
+  display: block;
+  font-size: 15px;
+  color: #f9f9f9;
+}
+
+.Promotion .movie_handler {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.Promotion .movie_handler button {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0;
+}
+
+.Promotion .movie_handler button::after {
+  content: "\ea3b";
+  font-family: 'xeicon';
+  font-size: 50px;
+  color: #fff;
+  background: #008850;
+  padding: 20px;
+  border-radius: 50%;
+}
+
+.Promotion .movie_handler button.on::after {
+  content: "\ea3e";
+  font-family: 'xeicon';
+  font-size: 50px;
+}
+
+/* 
+
+* {
+  outline: 1px solid pink;
+} */
