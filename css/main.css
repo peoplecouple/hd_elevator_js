@@ -233,7 +233,7 @@ body {
 
 .Header .top_service .top_search {
   position: relative;
-  cursor: ~;
+  cursor: pointer;
 }
 
 .Header .top_service .top_search i {
