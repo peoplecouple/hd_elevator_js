@@ -22,6 +22,10 @@ window.addEventListener('DOMContentLoaded', () => {
     SCT > 0
       ? document.querySelector('.Header').classList.add('on')
       : document.querySelector('.Header').classList.remove('on')
+
+    SCT > 600
+      ? document.querySelector('.to_top').classList.add('on')
+      : document.querySelector('.to_top').classList.remove('on')
   });
 
   const slideDots = document.querySelectorAll('.slide_dots li');
@@ -99,6 +103,15 @@ window.addEventListener('DOMContentLoaded', () => {
   })
 
 
+  const solutionDots = document.querySelectorAll('.solution_dots li');
+  solutionDots.forEach((el, idx) => {
+    el.addEventListener('click', () => {
+      SCS.slideTo(idx);
+      solutionDots.forEach(el => el.classList.remove('on'))
+      el.classList.add('on')
+    })
+  })
+
   const SCBOX = document.querySelectorAll('.Solution .content_box>div')
   const SCS = new Swiper('.Solution .center_slider', {
     loop: true,
@@ -112,7 +125,10 @@ window.addEventListener('DOMContentLoaded', () => {
         let count = this.realIndex; // 0 1 2
         SCBOX.forEach(it => it.classList.remove('on'))
         SCBOX[count].classList.add('on');
+        solutionDots.forEach(el => el.classList.remove('on'))
+        solutionDots[count].classList.add('on')
         document.querySelector('.solution_slider_num').innerHTML = (this.realIndex + 1) + " <span>  / " + (SCBOX.length);
+
       }
     }
   })
@@ -136,7 +152,51 @@ window.addEventListener('DOMContentLoaded', () => {
     SCS.slideNext();
   })
 
+  document.querySelector('#FL').addEventListener('change', (e) => {
+    let lnk = e.target.value
+    lnk && window.open(lnk)
+  })
+
+  document.querySelector('.to_top').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+    WebGLSampler.toString(window, 3, { screenTop: 0 })
+  })
+
+  const FT_LINK = document.querySelectorAll('.ft_top .right li')
+  const FT_CONTENT = document.querySelectorAll('.ft_top .content .link')
+
+  FT_LINK.forEach((el, idx) => {
+    el.addEventListener('click', () => {
+      if (el.classList.contains('on')) {
+        el.classList.remove('on')
+        FT_CONTENT[idx].classList.remove('on')
+      } else {
+        FT_LINK.forEach(el => el.classList.remove('on'))
+        el.classList.add('on')
+        FT_CONTENT.forEach(el => el.classList.remove('on'))
+        FT_CONTENT[idx].classList.add('on')
+      }
+    })
+  })
+
+  console.log(document.cookie);
+  const COOKIE = document.cookie;
+  if (!COOKIE) { //쿠키가 없으면
+    document.querySelector('.popup').style.display = "block"
+  }
+
+  document.querySelector('.popup button').addEventListener('click', function () {
+    document.querySelector('.popup').style.display = "none"
+  })
 
 
-  
+  document.querySelector('.popup input').addEventListener('change', () => {
+
+    const date = new Date();
+    date.setTime(date.getTime() + (10 * 1000)); //10초 짜리 팝업
+    let expires = "expires=" + date.toUTCString();
+    document.cookie = "name=popup; " + expires + ";path=/"
+    document.querySelector('.popup').style.display = "none"
+  })
+
 })
